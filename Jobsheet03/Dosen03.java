@@ -17,7 +17,7 @@ public class Dosen03 {
     }
 
     public String tampilJenisKelamin(){
-        return jenisKelamin ? "Wanita" : "Laki-laki";
+        return jenisKelamin ? "Wanita" : "Pria";
     }
         
 }

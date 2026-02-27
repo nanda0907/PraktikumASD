@@ -14,7 +14,7 @@ public class DosenDemo03 {
             String kode = sc.nextLine();
             System.out.print("Nama: ");
             String nama = sc.nextLine();
-            System.out.print("Jenis Kelamin (true: Wanita/false: Laki-laki): ");
+            System.out.print("Jenis Kelamin (true: Wanita/false: Pria): ");
             Boolean jenisKelamin = Boolean.parseBoolean(sc.nextLine());
             System.out.print("Usia: ");
             int usia = Integer.parseInt(sc.nextLine());

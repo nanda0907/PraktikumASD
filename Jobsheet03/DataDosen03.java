@@ -1,6 +1,5 @@
 package Jobsheet03;
 
-
 public class DataDosen03 {
     public void dataSemuaDosen(Dosen03[] dataDosen){
         int no = 1;
