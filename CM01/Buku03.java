@@ -4,20 +4,16 @@ public class Buku03 {
     String kodeBuku;
     String judul;
     int tahunTerbit;
+    String penerbit;
 
     Buku03(){
 
     }
 
-    Buku03(String kode, String jdl, int tahun){
+    Buku03(String kode, String jdl, int tahun, String pnb){
         kodeBuku = kode;
         judul = jdl;
         tahunTerbit = tahun;
-    }
-
-    void tampilBuku(){
-        System.out.println("Kode Buku: " + kodeBuku);
-        System.out.println("Judul: " + judul);
-        System.out.println("Tahun Terbit: " + tahunTerbit);
+        penerbit = pnb;
     }
 }
