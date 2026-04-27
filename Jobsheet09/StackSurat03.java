@@ -1,13 +1,13 @@
 package Jobsheet09;
 
 public class StackSurat03 {
-    Surat[] stack;
+    Surat03[] stack;
     int top;
     int size;
 
-    public StackSurat(int size) {
+    public StackSurat03(int size) {
         this.size = size;
-        stack = new Surat[size];
+        stack = new Surat03[size];
         top = -1;
     }
 
@@ -19,7 +19,7 @@ public class StackSurat03 {
         return top == size - 1;
     }
 
-    public void push(Surat s) {
+    public void push(Surat03 s) {
         if (!isFull()) {
             stack[++top] = s;
         } else {
@@ -27,7 +27,7 @@ public class StackSurat03 {
         }
     }
 
-    public Surat pop() {
+    public Surat03 pop() {
         if (!isEmpty()) {
             return stack[top--];
         } else {
@@ -36,7 +36,7 @@ public class StackSurat03 {
         }
     }
 
-    public Surat peek() {
+    public Surat03 peek() {
         if (!isEmpty()) {
             return stack[top];
         } else {
