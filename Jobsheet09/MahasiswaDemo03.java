@@ -16,6 +16,7 @@ public class MahasiswaDemo03 {
             System.out.println("4. Melihat Daftar Tugas");
             System.out.println("5. Melihat Tugas Pertama");
             System.out.println("6. Melihat Jumlah Tugas");
+            System.out.println("7. Keluar");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
             scan.nextLine();
@@ -31,53 +32,55 @@ public class MahasiswaDemo03 {
 
                     Mahasiswa03 mhs = new Mahasiswa03(nim, nama, kelas);
                     stack.push(mhs);
-                    System.out.printf("Tugas %s berhasil dikumpulkan\n", mhs.nama);
+                    System.out.println("Tugas berhasil dikumpulkan.");
                     break;
 
                 case 2:
                     Mahasiswa03 dinilai = stack.pop();
                     if (dinilai != null) {
-                        System.out.println("Menilai tugas dari " + dinilai.nama);
-                        System.out.print("Masukkan nilai (0-100): ");
+                        System.out.print("Masukkan nilai: ");
                         int nilai = scan.nextInt();
                         dinilai.tugasDinilai(nilai);
-                        System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
-                    } else {
-                        System.out.println("Tidak ada tugas untuk dinilai.");
+
+                        System.out.println("Nilai: " + nilai);
+                        System.out.println("Biner: " + stack.konversiDesimalKeBiner(nilai));
                     }
                     break;
 
                 case 3:
                     Mahasiswa03 lihat = stack.peek();
                     if (lihat != null) {
-                        System.out.println("Tugas terakhir dikumpulkan oleh " + lihat.nama);
+                        System.out.println("Terakhir: " + lihat.nama);
                     } else {
-                        System.out.println("Belum ada tugas.");
+                        System.out.println("Kosong.");
                     }
                     break;
 
                 case 4:
-                    System.out.println("Daftar semua tugas:");
                     stack.print();
                     break;
 
                 case 5:
                     Mahasiswa03 bawah = stack.peekBottom();
                     if (bawah != null) {
-                        System.out.println("Tugas pertama dikumpulkan oleh " + bawah.nama);
+                        System.out.println("Pertama: " + bawah.nama);
                     } else {
-                        System.out.println("Belum ada tugas.");
+                        System.out.println("Kosong.");
                     }
                     break;
 
                 case 6:
-                    System.out.println("Jumlah tugas yang sudah dikumpulkan: " + stack.count());
+                    System.out.println("Jumlah: " + stack.count());
+                    break;
+
+                case 7:
+                    System.out.println("Keluar...");
                     break;
 
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
 
-        } while (pilih >= 1 && pilih <= 6);
+        } while (pilih >= 1 && pilih <= 7);
     }
 }

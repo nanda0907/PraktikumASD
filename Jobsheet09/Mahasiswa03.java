@@ -7,7 +7,6 @@ public class Mahasiswa03 {
     int nilai;
 
     Mahasiswa03() {
-
     }
 
     Mahasiswa03(String nim, String nama, String kelas) {
@@ -17,7 +16,7 @@ public class Mahasiswa03 {
         this.nilai = -1;
     }
 
-    void tugasDinilai(int nilai){
+    void tugasDinilai(int nilai) {
         this.nilai = nilai;
     }
 }
