@@ -65,25 +65,27 @@ public class Queue03 {
     public void Enqueue(int dt){
         if (isFull()){
             System.out.println("Queue sudah penuh");
+            System.exit(0);
         } else {
             if (isEmpty()){
-                front = rear = 0;
+            front = rear = 0;
+        } else {
+            if (rear == max -1) {
+                rear = 0;
             } else {
-                if (rear == max -1) {
-                    rear = 0;
-                } else {
-                    rear++;
-                }
+                rear++;
             }
-            data[rear] = dt;
-            size++;
         }
+        data[rear] = dt;
+        size++;
     }
+}
 
     public int Dequeue(){
         int dt = 0;
         if (isEmpty()){
             System.out.println("Queue masih kosong");
+            System.exit(0);
         } else {
             dt = data[front];
             size--;
