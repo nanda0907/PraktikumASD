@@ -3,7 +3,6 @@ package Jobsheet12;
 import java.util.Scanner;
 
 public class DoubleLinkedListMain03 {
-
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -20,6 +19,12 @@ public class DoubleLinkedListMain03 {
             System.out.println("5. Hapus data di akhir");
             System.out.println("6. Tampilkan data");
             System.out.println("7. Tampilkan data secara terbalik");
+            System.out.println("8. Tambah data berdasarkan index");
+            System.out.println("9. Hapus data setelah NIM");
+            System.out.println("10. Hapus data berdasarkan index");
+            System.out.println("11. Tampilkan data pertama");
+            System.out.println("12. Tampilkan data terakhir");
+            System.out.println("13. Tampilkan data berdasarkan index");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu : ");
 
@@ -110,6 +115,52 @@ public class DoubleLinkedListMain03 {
                     list.printReverse();
                     break;
 
+                case 8:
+                    System.out.print("Masukkan index: ");
+                    int tambahIndex = scan.nextInt();
+                    scan.nextLine();
+                    System.out.println("Masukkan NIM   : ");
+                    String nimTambah = scan.nextLine();
+                    System.out.println("Masukkan Nama  : ");
+                    String namaTambah = scan.nextLine();
+                    System.out.println("Masukkan Kelas : ");
+                    String kelasTambah = scan.nextLine();
+                    System.out.println("Masukkan IPK   : ");
+                    double ipkTambah = scan.nextDouble();
+                    scan.nextLine();
+
+                    Mahasiswa03 dataTambah = new Mahasiswa03(nimTambah, namaTambah, kelasTambah, ipkTambah);
+                    list.add(tambahIndex, dataTambah);
+                    break;
+
+                case 9:
+                    System.out.print("Masukkan NIM : ");
+                    String nimHapus = scan.nextLine();
+                    list.removeAfter(nimHapus);
+                    break;
+
+                case 10:
+                    System.out.print("Masukkan index yang dihapus : ");
+                    int hapusIndex = scan.nextInt();
+                    scan.nextLine();
+                    list.remove(hapusIndex);
+                    break;
+                
+                case 11:
+                    list.getFirst();
+                    break;
+
+                case 12:
+                    list.getLast();
+                    break;
+
+                case 13:
+                    System.out.print("Masukkan index yang ditampilkan : ");
+                    int tampilIndex = scan.nextInt();
+                    scan.nextLine();
+                    list.getIndex(tampilIndex);
+                    break;
+                    
                 case 0:
                     System.out.println("Keluar dari program.");
                     break;

@@ -65,12 +65,16 @@ public class DoubleLinkedList03 {
             System.out.println("Linked List kosong, tidak ada yang dihapus.");
             return;
         }
+        Mahasiswa03 dataHapus = head.data;
+
         if (head == tail) { // hanya satu node
             head = tail = null;
         } else {
             head = head.next;
             head.prev = null;
         }
+        System.out.println("Data berhasil dihapus:");
+        dataHapus.tampil();
     }
 
     public void removeLast() {
@@ -78,12 +82,17 @@ public class DoubleLinkedList03 {
             System.out.println("Linked List kosong, tidak ada yang dihapus.");
             return;
         }
+
+        Mahasiswa03 dataHapus = tail.data;
+
         if (head == tail) { // hanya satu node
             head = tail = null;
         } else {
             tail = tail.prev;
             tail.next = null;
         }
+        System.out.println("Data berhasil dihapus:");
+        dataHapus.tampil();
     }
 
     public void print(){
@@ -119,4 +128,126 @@ public class DoubleLinkedList03 {
         head = tail = null;
     }
 
+    public void add(int index, Mahasiswa03 data) {
+        if (index < 0) {
+            System.out.println("Index tidak valid.");
+            return;
+        }
+        Node03 newNode = new Node03(data);
+        if (index == 0) {
+            addFirst(data);
+            return;
+        }
+        Node03 current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index) {
+            current = current.next;
+            currentIndex++;
+        }
+        if (current == null) {
+            addLast(data);
+        } else {
+            newNode.next = current;
+            newNode.prev = current.prev;
+            if (current.prev != null) {
+                current.prev.next = newNode;
+            }
+            current.prev = newNode;
+            if (current == head) {
+                head = newNode;
+            }
+        }
+    }
+
+    public void removeAfter(String keyNim){
+        Node03 current = head;
+        while (current != null && !current.data.nim.equals(keyNim)) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("Data dengan NIM " + keyNim + " tidak ditemukan.");
+            return;
+        }
+        if (current.next == null) {
+            System.out.println("Tidak ada data setelah NIM " + keyNim + " untuk dihapus.");
+            return;
+        }
+        Node03 hapus = current.next;
+
+        if (hapus == tail) {
+            tail = current;
+            current.next = null;
+        } else {
+            current.next = hapus.next;
+            hapus.next.prev = current;
+        }
+        System.out.println("Data berhasil dihapus:");
+        hapus.data.tampil();
+    }
+
+    public void remove(int index) {
+        if (index < 0 || isEmpty()) {
+            System.out.println("Index tidak valid atau Linked List kosong.");
+            return;
+        }
+        if (index == 0) {
+            removeFirst();
+            return;
+        }
+        Node03 current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index) {
+            current = current.next;
+            currentIndex++;
+        }
+        if (current == null) {
+            System.out.println("Index melebihi jumlah data.");
+            return;
+        }
+        if (current == tail) {
+            removeLast();
+        } else {
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+            System.out.println("Data berhasil dihapus:");
+            current.data.tampil();
+        }
+    }
+
+    public void getFirst() {
+        if (isEmpty()) {
+            System.out.println("Linked List kosong.");
+            return;
+        }
+        System.out.println("Data pertama:");
+        head.data.tampil();
+    }
+
+    public void getLast() {
+        if (isEmpty()) {
+            System.out.println("Linked List kosong.");
+            return;
+        }
+        System.out.println("Data terakhir:");
+        tail.data.tampil();
+    }
+
+    public void getIndex(int index) {
+        if (index < 0 || isEmpty()) {
+            System.out.println("Index tidak valid atau Linked List kosong.");
+            return;
+        }
+        Node03 current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index) {
+            current = current.next;
+            currentIndex++;
+        }
+        if (current == null) {
+            System.out.println("Index melebihi jumlah data.");
+            return;
+        }
+        System.out.println("Data pada index " + index + ":");
+        current.data.tampil();
+    }
 }
