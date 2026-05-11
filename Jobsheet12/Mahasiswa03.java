@@ -1,12 +1,8 @@
-package Jobsheet11;
+package Jobsheet12;
 
 public class Mahasiswa03 {
     String nim, nama, kelas;
     double ipk;
-
-    public Mahasiswa03() {
-
-    }
 
     public Mahasiswa03(String nim, String nama, String kelas, double ipk) {
         this.nim = nim;
@@ -15,8 +11,10 @@ public class Mahasiswa03 {
         this.ipk = ipk;
     }
 
-    public void tampilInformasi() {
-    System.out.printf("%-10s %-10s %-5s %-3.1f\n",
-            nama, nim, kelas, ipk);
-}
+    public void tampil() {
+        System.out.println("NIM: " + nim);
+        System.out.println("Nama: " + nama);
+        System.out.println("Kelas: " + kelas);
+        System.out.println("IPK: " + ipk);
+    }
 }
